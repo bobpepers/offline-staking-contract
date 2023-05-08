@@ -84,7 +84,7 @@ contract Delegations{
 
 	function verifyPoD(bytes memory _PoD, address _staker, address _delegate) internal view returns (bool){
 
-		bytes memory prefix = "\x15Runebase Signed Message:\n\x28";
+		bytes memory prefix = "\x19Runebase Signed Message:\n\x28";
 		bytes memory message = toASCIIString(_staker);
 
 		uint8 v = toUint8(slice(_PoD,0,1),0);
@@ -184,5 +184,4 @@ contract Delegations{
 	    }
 	    return abi.encodePacked(_string);
 	}
-
-	}
+}
